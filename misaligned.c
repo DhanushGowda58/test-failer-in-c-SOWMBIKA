@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <assert.h>
+#include <string.h>
 
-F#define MAX_NO_OF_PRIMARYCOLORS  5
+#define MAX_NO_OF_PRIMARYCOLORS  5
 const char* majorColor[MAX_NO_OF_PRIMARYCOLORS] = {"White", "Red", "Black", "Yellow", "Violet"};
 const char* minorColor[MAX_NO_OF_PRIMARYCOLORS] = {"Blue", "Orange", "Green", "Brown", "Slate"};
 int CountofColorCodesPrinted= 0;
@@ -13,7 +14,7 @@ struct colorcode_s
     char colorCode;
 };
 
-colorcode_s ColorCodeParserStub(int majorColourIndex, int minorColourIndex);
+colorcode_s ColorCodeParserStub(int majorColorIndex, int minorColorIndex);
 void printColourCodeManualInConsoleStub(int majorColorIndex, int minorColorIndex, colorcode_s colorcode);
 int printColorMapStub(void (*printColourCodeManualInConsole_FnPtr)(int,int,colorcode_s ));
  
@@ -29,11 +30,11 @@ int printColorMap() {
     return i * j;
 }
 
-colorcode_s ColorCodeParserStub(int majorColourIndex, int minorColourIndex)
+colorcode_s ColorCodeParserStub(int majorColorIndex, int minorColorIndex)
 {
     colorcode_s colorcode;
-    strcpy(colorcode.majorColour, majorColor[majorColorIndex]);
-    strcpy(colorcode.minorColour, minorColor[minorColorIndex]);
+    strcpy(colorcode.majorColor, majorColor[majorColorIndex]);
+    strcpy(colorcode.minorColor, minorColor[minorColorIndex]);
     colorcode.colorCode = (MAX_NO_OF_PRIMARYCOLORS * majorColorIndex) + minorColorIndex + 1;
     return colorcode;   
 }
